@@ -2,24 +2,28 @@ import { useState } from 'react'
 import { TYPES } from '../data';
 
 
-export default function Options({ updatePokemonList}) {
+export default function Options({ updatePokemonList }) {
 
     const [type, setType] = useState("");
     const [inputText, setInputText] = useState("");
 
     function handleTypeChange(e) {
+
+        if(e.target.value === "Select type") return;
+
         setType(e.target.value);
-        updatePokemonList(e.target.value, "select")
+        updatePokemonList(e.target.value, "select");
     };
 
     function handleInputChange(e) {
         setInputText(e.target.value);
-        updatePokemonList(e.target.value, "input")
+        updatePokemonList(e.target.value, "input");
     };
 
     function handleReset() {
         setType("");
-        updatePokemonList(null, "button")
+        setInputText("");
+        updatePokemonList(null, "button");
     };
 
 
@@ -34,6 +38,7 @@ export default function Options({ updatePokemonList}) {
                 onChange={handleTypeChange}
                 value={type}
             >
+                <option>Select type</option>
                 {TYPES.map(type => <option key={type} value={type}>{type}</option>)}
             </select>
             <button
