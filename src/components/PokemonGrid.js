@@ -3,12 +3,6 @@ import Pokemon from "./Pokemon";
 import Options from "./Options";
 import { PokemonData } from "../pokemonData";
 
-
-// need list of initial pokemon
-// need list of filtered pokemon
-// need list of pokemon to fall back on
-
-
 export default function PokemonGrid() {
 
     const [filteredPokemon, setFilteredPokemon] = useState(PokemonData); // this works now - might not later when we add more data
@@ -53,8 +47,13 @@ export default function PokemonGrid() {
 
     return (
         <div>
+            <div className="text-center mt-3 container mx-auto border border-3 py-3 px-3">
+                <h1>Poké-Display</h1>
+                <p className="lead">View and filter Pokémon quickly! To start, either search by name in the input, or filter through the select option.</p>
+                <p className="lead">Next, click on a Pokémon to see it's information!</p>
+            </div>
             <Options updatePokemonList={updatePokemonList} />
-            <div className="container border border-danger mt-5">
+            <div className="container shadow rounded border border-2 my-5">
                 <div className="row row-cols-3 row-cols-md-6 gap-2">
                     {displayPokemon.map(p =>
                     (<Pokemon
