@@ -54,12 +54,15 @@ export default function PokemonGrid() {
     };
 
     function handleClick(pokemon) {
-        setSelectedPokemon(pokemon)
-    }
+        setSelectedPokemon(pokemon);
+        document.body.style.overflow = "hidden"; // remove scroll from body
+    };
 
     return (
         <div>
-            {selectedPokemon && <Modal setSelectedPokemon={setSelectedPokemon} selectedPokemon={selectedPokemon}/>}
+            {selectedPokemon && (
+                <Modal setSelectedPokemon={setSelectedPokemon} selectedPokemon={selectedPokemon} />
+            )}
             <div className="text-center mt-3 container mx-auto border border-3 py-3 px-3">
                 <h1>Poké-Display</h1>
                 <p className="lead">View and filter Pokémon quickly! To start, either search by name in the input, or filter through the select option.</p>
