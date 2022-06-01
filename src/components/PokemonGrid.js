@@ -2,11 +2,17 @@ import { useState } from "react";
 import Pokemon from "./Pokemon";
 import Options from "./Options";
 import { PokemonData } from "../pokemonData";
+import Modal from "./Modal";
+
+// https://pokeapi.co/api/v2/pokemon?limit=11&offset=20
+// limit = # of poke returned
+// offset = starting point
 
 export default function PokemonGrid() {
 
     const [filteredPokemon, setFilteredPokemon] = useState(PokemonData); // this works now - might not later when we add more data
     const [displayPokemon, setDisplayPokemon] = useState(PokemonData);
+    const [selectedPokemon, setSelectedPokemon] = useState(null); // pokemon to display in modal
 
     function updatePokemonList(value, updateType) {
         switch (updateType) {
@@ -18,6 +24,8 @@ export default function PokemonGrid() {
                 break;
             case "button": // reset filtered options back to `all pokemon`
                 setDisplayPokemon(PokemonData);
+                break;
+            default:
                 break;
         };
 
@@ -45,8 +53,13 @@ export default function PokemonGrid() {
         setDisplayPokemon(temp);
     };
 
+    function handleClick(pokemon) {
+        setSelectedPokemon(pokemon)
+    }
+
     return (
         <div>
+            {selectedPokemon && <Modal setSelectedPokemon={setSelectedPokemon} selectedPokemon={selectedPokemon}/>}
             <div className="text-center mt-3 container mx-auto border border-3 py-3 px-3">
                 <h1>Poké-Display</h1>
                 <p className="lead">View and filter Pokémon quickly! To start, either search by name in the input, or filter through the select option.</p>
@@ -58,9 +71,8 @@ export default function PokemonGrid() {
                     {displayPokemon.map(p =>
                     (<Pokemon
                         key={p.name}
-                        name={p.name}
-                        types={p.types}
-                        sprite={p.sprite}
+                        pokemon={p}
+                        handleClick={handleClick}
                     />
                     )
                     )}
