@@ -8,7 +8,6 @@ export default function Options({ updatePokemonList }) {
     const [inputText, setInputText] = useState("");
 
     function handleTypeChange(e) {
-
         if(e.target.value === "Select type") return;
 
         setType(e.target.value);
@@ -42,7 +41,7 @@ export default function Options({ updatePokemonList }) {
                 {TYPES.map(type => <option key={type} value={type}>{type}</option>)}
             </select>
             <button
-                className='btn btn-danger rounded-pill ms-1 hover-me'
+                className='btn btn-danger rounded-pill ms-1'
                 onClick={handleReset}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
