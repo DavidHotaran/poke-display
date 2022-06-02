@@ -1,21 +1,14 @@
 import { useState } from "react";
 import Pokemon from "./Pokemon";
 import Options from "./Options";
-import { PokemonData, InitialData } from "../pokemonData";
+import { PokemonData } from "../pokemonData";
 import Modal from "./Modal";
-
-// https://pokeapi.co/api/v2/pokemon?limit=11&offset=20
-// limit = # of poke returned
-// offset = starting point
-
-// when we choose a filter, then reset the filter ->
-// the input filters on the type WHEN we need to filter on all
 
 export default function PokemonGrid() {
     const [filteredPokemon, setFilteredPokemon] = useState(PokemonData); // this works now - might not later when we add more data
     const [displayPokemon, setDisplayPokemon] = useState(PokemonData);
     const [selectedPokemon, setSelectedPokemon] = useState(null); // pokemon to display in modal
-    const [sliceValue, setSliceValue] = useState(11); // render only first 10
+    const [sliceValue, setSliceValue] = useState(9); // render only first 10
 
     function updatePokemonList(value, updateType) {
         switch (updateType) {
