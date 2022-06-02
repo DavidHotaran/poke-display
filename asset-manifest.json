@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/poke-display/static/css/main.5b8b830b.css",
+    "main.js": "/poke-display/static/js/main.8e88392a.js",
+    "static/js/787.4ee9ca1d.chunk.js": "/poke-display/static/js/787.4ee9ca1d.chunk.js",
+    "index.html": "/poke-display/index.html",
+    "main.5b8b830b.css.map": "/poke-display/static/css/main.5b8b830b.css.map",
+    "main.8e88392a.js.map": "/poke-display/static/js/main.8e88392a.js.map",
+    "787.4ee9ca1d.chunk.js.map": "/poke-display/static/js/787.4ee9ca1d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b8b830b.css",
+    "static/js/main.8e88392a.js"
+  ]
+}
