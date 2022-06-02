@@ -27,7 +27,9 @@ export default function Options({ updatePokemonList }) {
 
 
     return (
-        <div className='d-flex justify-content-center mt-5'>
+        <div className='d-flex mt-5 flex-column align-items-center flex-md-row justify-content-center'>
+            <div className='d-flex test'>
+
             <select
                 className='form-select'
                 style={{
@@ -49,6 +51,7 @@ export default function Options({ updatePokemonList }) {
                     <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
                 </svg>
             </button>
+            </div>
             <input
                 type='text'
                 value={inputText}

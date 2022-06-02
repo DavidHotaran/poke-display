@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../App.css'
 
 export default function Modal({ setSelectedPokemon, selectedPokemon }) {
 
@@ -44,7 +45,7 @@ export default function Modal({ setSelectedPokemon, selectedPokemon }) {
           </button>
         </div>
         <div className="my-3 mx-auto d-flex flex-column ">
-          <p className="text-center fs-5 text-capitalize">{pokemon.name}</p>
+          <p className="text-center text-capitalize display-6 ">{pokemon.name}</p>
           <p className="text-center fs-5 text-capitalize">Pokédex #{pokemon.id}</p>
           <div className="d-flex justify-content-center">
             <img className="img-fluid" style={{ maxWidth: "100px" }} src={pokemon.sprites.front_default} alt="pokemon" />
@@ -53,13 +54,15 @@ export default function Modal({ setSelectedPokemon, selectedPokemon }) {
             {pokemon.types.map(t => <img key={t.type.name} className="img-fluid" src={`images/${t.type.name}.png`} alt="type" />)}
           </div>
           <div className='d-flex flex-column align-items-center'>
+            <p className='fs-5'>Abilties</p>
             {pokemon.abilities.map(ability =>
               <div key={ability.ability.name}>
-                <p>{ability.is_hidden ? "hidden" : "primary"} ability: {ability.ability.name}</p>
+                <span className='text-decoration-underline'>{ability.ability.name} </span>
+                <span className='ms-1 fw-light fst-italic'>{ability.is_hidden ? "(hidden)" : ""}</span>
               </div>
             )}
           </div>
-          <div className='mx-2'>
+          <div className='mx-2 mt-3'>
             {pokemon.stats.map(stat =>
               <div key={stat.stat.name} className="d-flex justify-content-start border">
                 <span style={{ width: "150px" }}>{stat.stat.name}</span>
