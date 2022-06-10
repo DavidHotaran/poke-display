@@ -43,3 +43,8 @@ code {
     margin-bottom: 10px;
   }
 }
+
+.contain-overflow {
+  max-height: 500px;
+  overflow-y: auto;
+}

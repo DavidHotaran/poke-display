@@ -65,7 +65,7 @@ export default function PokemonGrid() {
                 <p className="lead">Next, click on a Pokémon to see it's information!</p>
             </div>
             <Options updatePokemonList={updatePokemonList} />
-            <div className="container shadow rounded border border-2 mt-5">
+            <div className="container shadow rounded border border-2 mt-5 contain-overflow">
                 <div className="row row-cols-3 row-cols-md-6 gap-2">
                     {displayPokemon.slice(0, sliceValue).map(p =>
                     (<Pokemon
