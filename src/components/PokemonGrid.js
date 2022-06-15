@@ -18,9 +18,10 @@ export default function PokemonGrid() {
             case "select":
                 filterFromSelect(value);
                 break;
-            case "button": // reset filtered options back to `all pokemon`
+            case "button": // reset filtered options back to `all pokemon` and reset sliceValue
                 setDisplayPokemon(PokemonData);
                 setFilteredPokemon(PokemonData);
+                setSliceValue(9);
                 break;
             default:
                 break;
@@ -47,6 +48,7 @@ export default function PokemonGrid() {
         const temp = PokemonData.filter(p => p.types[0].type.name === value || p.types[1]?.type.name === value);
         setFilteredPokemon(temp);
         setDisplayPokemon(temp);
+        setSliceValue(PokemonData.length)
     };
 
     function handleClick(pokemon) {
