@@ -34,17 +34,18 @@ export default function Modal({ setSelectedPokemon, selectedPokemon }) {
   }
 
   if (pokemon === null) return;
+
   return (
     <div className="modal display-block" onClick={divClick}>
-      <div className="modal-main rounded border border-2">
-        <div className="d-flex justify-content-end">
+      <div className="modal-main rounded">
+        <div className="d-flex justify-content-end sticky-top">
           <button className="btn btn-danger mt-1 me-1 rounded-pill" onClick={handleClick} >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
               <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
             </svg>
           </button>
         </div>
-        <div className="my-3 mx-auto d-flex flex-column ">
+        <div className="my-3 d-flex flex-column ">
           <p className="text-center text-capitalize display-6 ">{pokemon.name}</p>
           <p className="text-center fs-5 text-capitalize">Pokédex #{pokemon.id}</p>
           <div className="d-flex justify-content-center">
@@ -54,13 +55,15 @@ export default function Modal({ setSelectedPokemon, selectedPokemon }) {
             {pokemon.types.map(t => <img key={t.type.name} className="img-fluid" src={`images/${t.type.name}.png`} alt="type" />)}
           </div>
           <div className='d-flex flex-column align-items-center'>
-            <p className='fs-5'>Abilties</p>
+            <p className='fs-5 text-center'>Abilties</p>
             {pokemon.abilities.map(ability =>
               <div key={ability.ability.name}>
                 <span className='text-decoration-underline'>{ability.ability.name} </span>
                 <span className='ms-1 fw-light fst-italic'>{ability.is_hidden ? "(hidden)" : ""}</span>
               </div>
             )}
+            <div>
+            </div>
           </div>
           <div className='mx-2 mt-3'>
             {pokemon.stats.map(stat =>
