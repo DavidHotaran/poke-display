@@ -32,7 +32,7 @@ export default function Options({ updatePokemonList }) {
                 <select
                     className='form-select'
                     style={{
-                        width: "8rem",
+                        width: "9rem",
                         borderRadius: "15px"
                     }}
                     onChange={handleTypeChange}

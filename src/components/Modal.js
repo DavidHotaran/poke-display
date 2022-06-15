@@ -67,15 +67,15 @@ export default function Modal({ setSelectedPokemon, selectedPokemon }) {
           </div>
           <div className='mx-2 mt-3'>
             {pokemon.stats.map(stat =>
-              <div key={stat.stat.name} className="d-flex justify-content-start border">
+              <div key={stat.stat.name} className="d-flex justify-content-start border-top">
                 <span style={{ width: "150px" }}>{stat.stat.name}</span>
-                <span className='testy' style={{ background: `${stat.base_stat <= 50 ? "#EF4444" : stat.base_stat > 50 && stat.base_stat <= 89 ? "#F59E0B" : "#16A34A"}`, width: `${stat.base_stat}px` }}></span>
+                <span className='my-auto' style={{ height:"15px", borderRadius:"10px", background: `${stat.base_stat <= 50 ? "#EF4444" : stat.base_stat > 50 && stat.base_stat <= 89 ? "#F59E0B" : "#16A34A"}`, width: `${stat.base_stat}px` }}></span>
                 <span style={{ marginLeft: "auto" }}>{stat.base_stat}</span>
               </div>
             )}
-            <div className='d-flex justify-content-between border'>
+            <div className='d-flex justify-content-between border-top border-bottom'>
               <span>total</span>
-              <span>{pokemon.stats.reduce((prev, curr) => prev + curr.base_stat, 0)}</span>
+              <span className='fw-bold'>{pokemon.stats.reduce((prev, curr) => prev + curr.base_stat, 0)}</span>
             </div>
           </div>
         </div>
